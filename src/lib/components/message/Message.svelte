@@ -28,7 +28,7 @@
 <div
   class={[
     "bg-zinc-900 p-3 rounded-xl relative group",
-    data.content.includes(page.data.user.name) ? "bg-yellow-500/10!" : "",
+    data.content.includes(`@${page.data.user.name}`) ? "bg-yellow-500/10!" : "",
   ]}
 >
   <div
