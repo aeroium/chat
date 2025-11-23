@@ -29,7 +29,8 @@
     } = res.data;
 
     if (success) {
-      return void goto("/");
+      location.href = "/app";
+      return;
     }
 
     error.error = true;
