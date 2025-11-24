@@ -9,7 +9,7 @@
 
 <main class="space-y-4">
   <span class="flex items-center">
-    <h1 class="text-6xl font-bold">Aero</h1>
+    <h1 class="text-4xl font-bold">Aero</h1>
     <sup class="text-lg">(BETA)</sup>
   </span>
   <p>
