@@ -63,7 +63,9 @@
   </div>
 
   <p class="space-y-2 break-words">
-    {@html DOMPurify.sanitize(data.content)}
+    {@html DOMPurify.sanitize(data.content, {
+      FORBID_ATTR: "style",
+    })}
   </p>
   {#if rawToggled}
     <p class="text-sm mt-2 text-zinc-200/50 italic">
