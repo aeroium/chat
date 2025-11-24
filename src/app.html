@@ -5,7 +5,9 @@
     <link rel="icon" href="%sveltekit.assets%/favicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     %sveltekit.head%
-
+  </head>
+  <body data-sveltekit-preload-data="hover" class="bg-zinc-950">
+    <div style="display: contents">%sveltekit.body%</div>
     <!-- Cloudflare Web Analytics -->
     <script
       defer
@@ -13,8 +15,5 @@
       data-cf-beacon='{"token": "af91b457071e48029e241f10d0a33c66"}'
     ></script>
     <!-- End Cloudflare Web Analytics -->
-  </head>
-  <body data-sveltekit-preload-data="hover" class="bg-zinc-950">
-    <div style="display: contents">%sveltekit.body%</div>
   </body>
 </html>
