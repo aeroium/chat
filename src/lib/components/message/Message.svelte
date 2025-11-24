@@ -64,7 +64,7 @@
 
   <p class="space-y-2 break-words">
     {@html DOMPurify.sanitize(data.content, {
-      FORBID_ATTR: "style",
+      FORBID_ATTR: ["style"],
     })}
   </p>
   {#if rawToggled}
