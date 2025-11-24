@@ -7,6 +7,7 @@
 
   import { page } from "$app/state";
   import { BadgeCheck, Code } from "@lucide/svelte";
+    import { unemojify } from "node-emoji";
 
   const { data }: { data: Message } = $props();
 
@@ -68,7 +69,7 @@
   </p>
   {#if rawToggled}
     <p class="text-sm mt-2 text-zinc-200/50 italic">
-      Raw: {data.raw || data.content}
+      Raw: {unemojify(data.raw || data.content)}
     </p>
   {/if}
 </div>

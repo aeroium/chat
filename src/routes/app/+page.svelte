@@ -15,7 +15,7 @@
 
   import { LoaderCircle } from "@lucide/svelte";
 
-  const { data }: { data: { token: string; messages: MessageType[] } } =
+  const { data }: { data: PageServerData } =
     $props();
   const socket = new ChatSocket(data?.token ?? "");
 
