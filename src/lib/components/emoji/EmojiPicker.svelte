@@ -18,7 +18,7 @@
       onclick={() => {
         const emoji = window.prompt("Enter emoji or emoji name to add:");
 
-        const result = find(emoji || "");
+        const result = find(emoji?.trim().replaceAll(" ", "_") || "");
         if (!result?.emoji) {
           return void alert("Invalid emoji or emoji name");
         } else {
