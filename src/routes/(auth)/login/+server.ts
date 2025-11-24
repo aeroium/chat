@@ -10,7 +10,11 @@ export async function POST({ request, locals, cookies }) {
       password: login.password,
     });
 
-    cookies.set("wom_token", res.data.token, { path: "/" });
+    cookies.set("wom_token", res.data.token, {
+      path: "/",
+      expires: new Date(new Date().setDate(new Date().getDate() + 14)),
+    });
+
     return json({ success: true, message: "Successfully logged in" });
   } catch (error) {
     if (axios.isAxiosError(error)) {
