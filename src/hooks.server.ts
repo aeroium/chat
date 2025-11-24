@@ -1,5 +1,4 @@
 import { redirect, type Handle } from "@sveltejs/kit";
-import axios from "axios";
 
 export const handle: Handle = async ({ event, resolve }) => {
   event.locals.user = {};
@@ -8,13 +7,16 @@ export const handle: Handle = async ({ event, resolve }) => {
 
   if (session) {
     try {
-      const res = await axios.get("https://api.wasteof.money/session", {
+      const res = await event.fetch("https://api.wasteof.money/session", {
         headers: {
           Authorization: session,
         },
       });
 
-      event.locals.user.name = res.data.user.name;
+      if (res.ok) {
+        const data = await res.json();
+        event.locals.user.name = data.user.name;
+      }
     } catch (error) {
       console.error("ERR", error);
       event.locals.user = {};

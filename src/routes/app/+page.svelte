@@ -37,7 +37,10 @@
     socket.listen((message: MessageType) => {
       message._id = makehash(12);
       message.raw = message.content;
-      message.content = DOMPurify.sanitize(message.content);
+      message.content = DOMPurify.sanitize(message.content, {
+        FORBID_ATTR: ["style", "direction"],
+        FORBID_TAGS: ["big", "small"],
+      });
       messages = [message, ...messages];
     });
 

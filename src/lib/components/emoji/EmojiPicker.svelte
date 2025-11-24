@@ -1,7 +1,6 @@
 <script lang="ts">
   import Emoji from "./Emoji.svelte";
   import { Plus } from "@lucide/svelte";
-  import { find } from "node-emoji";
 
   let { emojis = $bindable(), draftedMessage = $bindable() } = $props();
 </script>
@@ -15,10 +14,13 @@
     {/each}
 
     <button
-      onclick={() => {
-        const emoji = window.prompt("Enter emoji or emoji name to add:");
+      onclick={async () => {
+        const query = window.prompt("Enter emoji or emoji name to add:");
+        if (!query) return;
 
-        const result = find(emoji?.trim().replaceAll(" ", "_") || "");
+        const { find } = await import("node-emoji");
+        const result = find(query.trim().replaceAll(" ", "_"));
+
         if (!result?.emoji) {
           return void alert("Invalid emoji or emoji name");
         } else {

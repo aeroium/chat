@@ -1,13 +1,12 @@
 <script lang="ts">
   import moment from "moment";
-  import DOMPurify from "dompurify";
 
   import { type Component } from "svelte";
   import type { Message } from "$lib/types/message";
 
   import { page } from "$app/state";
   import { BadgeCheck, Code } from "@lucide/svelte";
-    import { unemojify } from "node-emoji";
+  import { unemojify } from "node-emoji";
 
   const { data }: { data: Message } = $props();
 
@@ -62,10 +61,7 @@
   </div>
 
   <p class="space-y-2 wrap-break-word">
-    {@html DOMPurify.sanitize(data.content, {
-      FORBID_ATTR: ["style", "direction"],
-      FORBID_TAGS: ["big", "small"],
-    })}
+    {@html data.content}
   </p>
   {#if rawToggled}
     <p class="text-sm mt-2 text-zinc-200/50 italic">
