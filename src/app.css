@@ -32,8 +32,16 @@ mark {
   @apply bg-zinc-100 font-medium rounded-md p-0.5;
 }
 
+a {
+  @apply text-zinc-200 font-bold underline cursor-pointer;
+}
+
 body {
   font-family: "Inter", "Twemoji", sans-serif;
+}
+
+code {
+  @apply bg-zinc-950 p-2 rounded-xl;
 }
 
 blockquote {

@@ -31,6 +31,7 @@
         if (!name || !message) return alert("Invalid macro");
 
         macros = [...macros, { name, message }];
+        localStorage.macros = macros;
       }}
       class="bg-zinc-800 hover:scale-105 flex items-center justify-center rounded-lg p-2 duration-200"
     >

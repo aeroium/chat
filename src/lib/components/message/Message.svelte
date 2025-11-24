@@ -1,6 +1,4 @@
 <script lang="ts">
-  import { CodeXml, Send } from "@lucide/svelte";
-
   import moment from "moment";
   import DOMPurify from "dompurify";
 
@@ -50,7 +48,7 @@
         <a
           target="_blank"
           href={`https://wasteof.money/@${data.from.name}`}
-          class="cursor-pointer font-bold">@{data.from.name}</a
+          class="cursor-pointer font-bold no-underline!">@{data.from.name}</a
         >
         {#if data.from.verified}
           <BadgeCheck size={18} />
@@ -62,9 +60,10 @@
     </div>
   </div>
 
-  <p class="space-y-2 break-words">
+  <p class="space-y-2 wrap-break-word">
     {@html DOMPurify.sanitize(data.content, {
-      FORBID_ATTR: ["style"],
+      FORBID_ATTR: ["style", "direction"],
+      FORBID_TAGS: ["big", "small"],
     })}
   </p>
   {#if rawToggled}

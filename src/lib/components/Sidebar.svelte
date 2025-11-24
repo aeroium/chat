@@ -4,17 +4,17 @@
   import MacroList from "./macros/MacroList.svelte";
 
   import list from "$lib/emojis.json";
+  import FormattingButtons from "./formatting/FormattingButtons.svelte";
 
   let { draftedMessage = $bindable() } = $props();
 
-  let emojis = $state<string[]>(list.emojis);
+  let emojis = $state<string[]>([]);
   let macros = $state<{ name: string; message: string }[] | null>(null);
 
   onMount(() => {
+    emojis = (localStorage.emojis ?? "😄").split(",");
     const stored = localStorage.getItem("macros");
-    macros = stored
-      ? JSON.parse(stored)
-      : [{ name: "test", message: "hello world" }];
+    macros = stored ? JSON.parse(stored) : [];
   });
 
   $effect(() => {
@@ -26,6 +26,7 @@
   <h1 class="text-3xl font-bold">Aero QuickTools</h1>
 
   <EmojiPicker bind:emojis bind:draftedMessage />
+  <FormattingButtons bind:ref={draftedMessage} />
 
   {#if macros !== null}
     <MacroList bind:macros bind:draftedMessage />

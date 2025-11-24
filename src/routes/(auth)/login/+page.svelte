@@ -39,7 +39,7 @@
 </script>
 
 <main class="flex flex-col items-center">
-  <div class="p-6 w-3/10 bg-zinc-900 rounded-xl space-y-4">
+  <div class="p-6 md:w-3/10 bg-zinc-900 rounded-xl space-y-4">
     <h1 class="text-3xl font-bold">Log into Aero</h1>
 
     <p>

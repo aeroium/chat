@@ -9,12 +9,12 @@
 
 <div class="text-gray-200 bg-zinc-950 h-screen">
   <nav class="bg-zinc-900 px-8 py-4 flex items-center justify-between">
-    <a href="/" class="text-3xl font-bold">Aero</a>
+    <a href="/" class="text-3xl font-bold no-underline!">Aero</a>
     <div>
       {#if user.name}
-        <a href="/logout" class="font-bold">@{user?.name}</a>
+        <a href="/logout" class="font-bold no-underline!">@{user?.name}</a>
       {:else}
-        <a href="/login">Login</a>
+        <a href="/login" class="no-underline!">Login</a>
       {/if}
     </div>
   </nav>

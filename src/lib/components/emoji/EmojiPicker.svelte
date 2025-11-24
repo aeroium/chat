@@ -1,6 +1,7 @@
 <script lang="ts">
   import Emoji from "./Emoji.svelte";
   import { Plus } from "@lucide/svelte";
+  import { find } from "node-emoji";
 
   let { emojis = $bindable(), draftedMessage = $bindable() } = $props();
 </script>
@@ -15,9 +16,15 @@
 
     <button
       onclick={() => {
-        const emoji = window.prompt("Enter emoji to add:");
-        if (!emoji || emoji.length === 0) return alert("Invalid emoji");
-        emojis = [...emojis, emoji];
+        const emoji = window.prompt("Enter emoji or emoji name to add:");
+
+        const result = find(emoji || "");
+        if (!result?.emoji) {
+          return void alert("Invalid emoji or emoji name");
+        } else {
+          emojis = [...emojis, result.emoji];
+          localStorage.emojis = emojis;
+        }
       }}
       class="bg-zinc-800 select-none hover:scale-115 cursor-pointer duration-200 rounded-lg p-2"
     >
