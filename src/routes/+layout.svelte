@@ -11,7 +11,7 @@
   <meta name="title" content="Aero — The Better wasteof.money/chat" />
   <meta name="description" content="Revolutionize your wasteof.money/chat experience with Aero, a clean, sleek, and modern chat client." />
 
-  <meta name="theme-color" content="#050505">
+  <meta name="theme-color" content="#e4e4e7">
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Aero — The Better wasteof.money/chat" />
   <meta property="og:description" content="Revolutionize your wasteof.money/chat experience with Aero, a clean, sleek, and modern chat client." />
