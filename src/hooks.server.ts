@@ -6,7 +6,7 @@ export const handle: Handle = async ({ event, resolve }) => {
   const session = event.cookies.get("wom_token");
 
   if (session) {
-    const res = await event.fetch("https://api.wasteof.money/session", {
+    const res = await fetch("https://api.wasteof.money/session", {
       headers: {
         Authorization: session,
       },
