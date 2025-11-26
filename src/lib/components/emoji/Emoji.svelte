@@ -1,8 +1,13 @@
 <script lang="ts">
-  let { emoji, ref = $bindable() } = $props();
+  let { emoji, ref = $bindable(), emojis = $bindable<string[]>() } = $props();
 </script>
 
 <button
+  oncontextmenu={(e) => {
+    event?.preventDefault()
+    emojis = emojis.filter((item: string) => item !== emoji)
+    localStorage.emojis = emojis.join(",")
+  }}
   onclick={() => {
     ref = `${ref} ${emoji}`;
     document.querySelector<HTMLInputElement>("#messagebox")?.focus();

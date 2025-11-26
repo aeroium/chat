@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { goto } from "$app/navigation";
+  import { goto, invalidateAll } from "$app/navigation";
   import axios from "axios";
 
   let username = $state<string>();
@@ -29,7 +29,7 @@
     } = res.data;
 
     if (success) {
-      location.href = "/app";
+      location.href = "/app"
       return;
     }
 

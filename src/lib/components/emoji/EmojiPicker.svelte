@@ -10,7 +10,7 @@
 
   <div class="grid grid-cols-7 gap-2">
     {#each emojis as emoji}
-      <Emoji {emoji} bind:ref={draftedMessage} />
+      <Emoji {emoji} bind:emojis bind:ref={draftedMessage} />
     {/each}
 
     <button

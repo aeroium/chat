@@ -59,7 +59,7 @@
 
   <div class="w-150">
     <div
-      class="[&::-webkit-scrollbar]:w-0 rounded-xl h-[71.67vh] flex flex-col-reverse mb-2 overflow-y-auto gap-2.5"
+      class="[&::-webkit-scrollbar]:w-0 rounded-xl h-[70.67vh] flex flex-col-reverse mb-2 overflow-y-auto gap-2.5"
     >
       {#if browser}
         {#each messages as message (message._id)}
@@ -81,6 +81,20 @@
       bind:value={draft}
       send={() => {
         if (socket) socket.send(draft);
+      }}
+      exportMessages={() => {
+        const blob = new Blob([JSON.stringify(messages, null, 2)], {
+          type: "application/json",
+        });
+
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = `messages-${makehash(8)}.json`;
+        a.click();
+
+        URL.revokeObjectURL(url);
+        a.remove();
       }}
     />
   </div>
