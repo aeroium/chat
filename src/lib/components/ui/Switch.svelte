@@ -8,7 +8,7 @@
   onclick={() => (toggled = !toggled)}
   class={[
     "rounded-full p-1 cursor-pointer duration-200 active:scale-90",
-    toggled ? "bg-green-900/50" : "bg-red-900/50",
+    toggled ? "bg-green-500/50" : "bg-red-500/50",
   ]}
 >
   {#if toggled}

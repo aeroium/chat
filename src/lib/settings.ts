@@ -10,5 +10,5 @@ export const defaultSettings = {
 export function loadSettings() {
   if (!browser) throw new Error("not running in browser");
 
-  return JSON.parse(localStorage.settings) ?? defaultSettings;
+  return JSON.parse(localStorage.settings ?? JSON.stringify(defaultSettings));
 }

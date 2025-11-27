@@ -26,6 +26,10 @@ export const handle: Handle = async ({ event, resolve }) => {
     throw redirect(303, "/login");
   }
 
+  if (event.url.pathname.startsWith("/settings") && !event.locals.user.name) {
+    throw redirect(303, "/login");
+  }
+
   if (event.url.pathname.startsWith("/login") && event.locals.user.name) {
     throw redirect(303, "/app");
   }
