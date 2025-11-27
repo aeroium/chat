@@ -42,8 +42,12 @@
 </svelte:head>
 
 <main>
-  <div class="flex gap-2 mx-auto w-4/5">
-    <div class="bg-zinc-900 p-6 rounded-xl h-[78.5vh] w-1/3">
+  <div class="md:hidden mb-2 p-3 bg-zinc-900 rounded-xl flex items-center">
+    <p>Settings doesn't have full support for mobile devices yet</p>
+  </div>
+
+  <div class="flex gap-2 mx-auto md:w-4/5">
+    <div class="md:block hidden bg-zinc-900 p-6 rounded-xl h-[78.5vh] w-1/3">
       <h1 class="text-3xl font-bold">Settings</h1>
 
       <div class="flex flex-col my-2">
@@ -54,7 +58,7 @@
       </div>
     </div>
 
-    <div class="relative bg-zinc-900 p-6 rounded-xl w-2/3">
+    <div class="relative md:h-auto h-[71.5vh] bg-zinc-900 p-6 rounded-xl md:w-2/3 w-full">
       <h1 class="text-3xl font-bold mb-2">
         {category.charAt(0).toUpperCase() + category.slice(1)}
       </h1>
@@ -96,23 +100,25 @@
         <p>You shouldn't be here?</p>
       {/if}
 
-      <button
-        onclick={saveSettings}
-        class="active:scale-90 mb-6 absolute bottom-0 left-1/ duration-200 w-fit cursor-pointer p-3 bg-zinc-100 text-black font-bold rounded-xl flex items-center gap-2"
-      >
-        <Save />
-        Save Changes
-      </button>
-
-      <button
-        onclick={() => {
-          settings = defaultSettings;
-        }}
-        class="active:scale-90 mb-6 absolute bottom-0 left-2/8 duration-200 w-fit cursor-pointer p-3 bg-zinc-800 text-zinc-100 font-bold rounded-xl flex items-center gap-2"
-      >
-        <RotateCcw />
-        Reset
-      </button>
+      <div class="absolute bottom-0 flex gap-3">
+        <button
+          onclick={saveSettings}
+          class="active:scale-90 mb-6 duration-200 w-fit cursor-pointer p-3 bg-zinc-100 text-black font-bold rounded-xl flex items-center gap-2"
+        >
+          <Save />
+          Save Changes
+        </button>
+  
+        <button
+          onclick={() => {
+            settings = defaultSettings;
+          }}
+          class="active:scale-90 mb-6 duration-200 w-fit cursor-pointer p-3 bg-zinc-800 text-zinc-100 font-bold rounded-xl flex items-center gap-2"
+        >
+          <RotateCcw />
+          Reset
+        </button>
+      </div>
     </div>
   </div>
 </main>
