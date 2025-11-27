@@ -36,7 +36,7 @@
 
 <button
   onclick={formatText}
-  class="bg-zinc-800 w-full flex items-center justify-center select-none hover:scale-115 cursor-pointer duration-200 rounded-lg p-2"
+  class="bg-zinc-800 active:scale-90 w-full flex items-center justify-center select-none hover:scale-115 cursor-pointer duration-200 rounded-lg p-2"
 >
   <Icon size={18} />
 </button>

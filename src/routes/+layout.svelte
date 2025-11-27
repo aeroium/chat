@@ -40,7 +40,10 @@
 
 <div class="text-gray-200 bg-zinc-950 h-screen">
   <nav class="bg-zinc-900 px-8 py-4 flex items-center justify-between">
-    <a href="/" class="text-3xl font-bold no-underline!">Aero</a>
+    <a
+      href={data.user.name ? "/app" : "/"}
+      class="text-3xl font-bold no-underline!">Aero</a
+    >
     <div class="flex items-center gap-4">
       {#if user.name}
         <a href="/logout" class="font-bold no-underline!">@{user?.name}</a>
