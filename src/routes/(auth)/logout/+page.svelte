@@ -9,7 +9,7 @@
 </script>
 
 <svelte:head>
-  <title>Aero - Log out?</title>
+  <title>Aero — Log out?</title>
 </svelte:head>
 
 <p>Are you sure you want to log out?</p>

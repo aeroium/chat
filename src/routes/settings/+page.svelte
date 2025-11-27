@@ -38,7 +38,7 @@
 {/snippet}
 
 <svelte:head>
-  <title>Aero - Settings</title>
+  <title>Aero — Settings</title>
 </svelte:head>
 
 <main>

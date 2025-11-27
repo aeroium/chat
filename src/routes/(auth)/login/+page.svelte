@@ -39,7 +39,7 @@
 </script>
 
 <svelte:head>
-  <title>Aero - Login</title>
+  <title>Aero — Login</title>
 </svelte:head>
 
 <main class="flex flex-col items-center">
